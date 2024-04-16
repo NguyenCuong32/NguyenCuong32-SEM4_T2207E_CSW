@@ -1,6 +1,7 @@
 package com.t2207e.exam.services.impl;
 
 
+import com.t2207e.exam.dtos.PlayerBuyItemDTO;
 import com.t2207e.exam.dtos.request.RequestCreatePlayer;
 import com.t2207e.exam.dtos.request.RequestPlayerBuyItem;
 import com.t2207e.exam.dtos.response.ResponseStatus;
@@ -60,6 +61,11 @@ public class PlayerService implements IPlayerService {
                 .status("True")
                 .errorCode(Short.parseShort(String.valueOf(HttpStatus.OK.value())))
                 .build();
+    }
+
+    @Override
+    public List<PlayerBuyItemDTO> listPlayerBuyItem() {
+        return playerRepository.getPlayerByItem();
     }
 
 

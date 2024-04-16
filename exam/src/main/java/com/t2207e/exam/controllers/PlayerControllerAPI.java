@@ -1,6 +1,7 @@
 package com.t2207e.exam.controllers;
 
 
+import com.t2207e.exam.dtos.PlayerBuyItemDTO;
 import com.t2207e.exam.dtos.request.RequestCreatePlayer;
 import com.t2207e.exam.dtos.request.RequestPlayerBuyItem;
 import com.t2207e.exam.dtos.response.ResponseStatus;
@@ -9,10 +10,9 @@ import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/player")
@@ -21,6 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PlayerControllerAPI {
 
     final IPlayerService playerService;
+
+    @GetMapping("/list")
+    public List<PlayerBuyItemDTO> listPlayerBuyItem(){
+        return playerService.listPlayerBuyItem();
+    }
 
     @PostMapping("")
     public ResponseStatus createItem(@RequestBody @Valid RequestCreatePlayer request){
