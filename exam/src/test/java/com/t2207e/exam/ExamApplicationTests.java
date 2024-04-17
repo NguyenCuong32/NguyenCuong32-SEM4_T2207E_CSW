@@ -1,4 +1,4 @@
-package com.T2204m.exam;
+package com.t2207e.exam;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

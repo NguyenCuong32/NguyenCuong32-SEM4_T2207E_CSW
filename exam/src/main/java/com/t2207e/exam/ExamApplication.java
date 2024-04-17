@@ -1,4 +1,4 @@
-package com.T2204m.exam;
+package com.t2207e.exam;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
