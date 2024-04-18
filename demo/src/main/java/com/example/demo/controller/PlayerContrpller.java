@@ -6,20 +6,21 @@ import com.example.demo.dto.PlayerInfoDTO;
 import com.example.demo.dto.ResponseData;
 import com.example.demo.service.PlayerService;
 import jakarta.validation.Valid;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.experimental.FieldDefaults;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequestMapping("/player")
 @RestController
 @RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class PlayerContrpller {
     private final PlayerService playerService;
 
-    @PostMapping("/player")
+    @PostMapping("/")
     public ResponseData createPlayer(@RequestBody @Valid PlayerCreateDTO request) {
         return playerService.createPlayer(request);
     }
