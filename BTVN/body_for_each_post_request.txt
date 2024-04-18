@@ -1,0 +1,19 @@
+insert item_t
+{
+   "itemname": "UK3",
+   "item_type_id": {
+      "itemtypeid": 2
+   },
+   "price": 12.00
+}
+insert player_t
+
+{
+"playername" : "Long",
+"playernational" : "VN"
+}
+insert item_player_t
+{
+   "itemId": "no1",
+    "playerId" : 3
+}
