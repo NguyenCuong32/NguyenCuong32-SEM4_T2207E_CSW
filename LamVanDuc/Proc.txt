@@ -1,0 +1,24 @@
+DELIMITER //
+
+CREATE PROCEDURE findAllDetailPlayer()
+BEGIN
+    SELECT 
+        p.player_id,
+        p.player_name,
+        p.player_national,
+        i.item_id,
+        i.item_name,
+        i.price,
+        it.item_type_id,
+        it.item_type_name
+    FROM 
+        player_t p
+    LEFT JOIN 
+        player_item_t pi ON p.player_id = pi.player_id
+    LEFT JOIN 
+        item_t i ON i.item_id = pi.item_id
+    LEFT JOIN 
+        item_type_t it ON i.item_type_id = it.item_type_id;
+END //
+
+DELIMITER ;
