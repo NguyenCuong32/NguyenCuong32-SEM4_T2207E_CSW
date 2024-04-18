@@ -1,20 +1,31 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "player_t")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Player {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "player_id")
-    private Long playerId;
-    @Column(name = "player_name")
+    private Integer playerId;
+
     private String playerName;
-    @Column(name = "player_national")
+
     private String playerNational;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "player_item_t", joinColumns = @JoinColumn(name = "player_id"),
+            inverseJoinColumns = @JoinColumn(name = "item_id"))
+    private List<Item> items;
+
 }

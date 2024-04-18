@@ -1,24 +1,31 @@
 package com.example.demo.entity;
-
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "item_t")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Item {
+
     @Id
-    @Column(name = "item_id")
     private String itemId;
-    @Column(name = "item_name")
+
     private String itemName;
+
     @ManyToOne
     @JoinColumn(name = "item_type_id")
     private ItemType itemType;
-    @Column(name = "price")
+
     private BigDecimal price;
+
+    @ManyToMany(mappedBy = "items", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<Player> players;
+
 }
