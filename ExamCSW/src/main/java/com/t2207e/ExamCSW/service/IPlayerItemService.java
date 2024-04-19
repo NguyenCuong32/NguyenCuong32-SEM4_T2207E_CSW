@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IPlayerItemService {
     List<PlayerItem> GetAllPlayerInformation();
+    void save(PlayerItem playerItem);
 }
