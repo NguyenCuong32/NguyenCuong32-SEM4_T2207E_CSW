@@ -2,14 +2,13 @@ package com.example.TestCSW.api;
 
 import com.example.TestCSW.entity.Item;
 import com.example.TestCSW.entity.Message;
-import com.example.TestCSW.entity.Player;
 import com.example.TestCSW.service.ItemService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/")
 public class ItemController {
     private final ItemService itemService;

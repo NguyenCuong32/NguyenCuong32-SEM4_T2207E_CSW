@@ -2,6 +2,7 @@ package com.example.TestCSW.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.rmi.server.UID;
 import java.util.UUID;
 
@@ -18,7 +19,7 @@ public class Item {
     @JoinColumn(name = "item_type_id")
     private ItemType itemType;
     @Column(name = "price")
-    private Double price;
+    private BigDecimal price;
 
     public Item() {
     }
@@ -47,11 +48,11 @@ public class Item {
         this.itemType = itemType;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 }
